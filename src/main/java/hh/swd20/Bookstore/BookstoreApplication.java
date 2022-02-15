@@ -22,8 +22,8 @@ public class BookstoreApplication {
 	public CommandLineRunner bookDemo(BookRepository repository) {
 		return (args) -> {
 			log.info("save a couple of books");
-			repository.save(new Book("Taistelutoverit","Stephen E. Ambrose", 2011, 978-951-1-2663-1,12.99));
-			repository.save(new Book("Kuolema telaketjuilla", "Sven Hassel", 2006, 951-20-7270-1,5));	
+			repository.save(new Book("Taistelutoverit","Stephen E. Ambrose", 2011, "978-95112663",12.99));
+			repository.save(new Book("Kuolema telaketjuilla", "Sven Hassel", 2006, "951-2072701",5));	
 			
 			log.info("fetch all books");
 			for (Book book : repository.findAll()) {

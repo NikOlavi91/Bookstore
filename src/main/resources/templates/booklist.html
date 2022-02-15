@@ -8,6 +8,7 @@
 	<h1>Bookstore</h1>
 	<table>
 		<tr>
+			<th>ID</th>
 			<th>Title</th>
 			<th>Author</th>
 			<th>Year</th>
@@ -20,7 +21,9 @@
 			<td th:text="${book.year}">year</td>
 			<td th:text="${book.isbn}">isbn</td>
 			<td th:text="${book.price}">price</td>
+			<td><a th:href="@{/delete/{id}(id=${book.id})}">Delete</a></td> 
 		</tr>
 		</table>
+		<a href="/add">Add Book</a>
 </body>
 </html>
