@@ -29,6 +29,8 @@ public class BookstoreApplication {
 			Category category2 = new Category("Tietokirjat");
 			crepository.save(category2);
 			
+			repository.save(new Book("Taistelutoverit","Stephen E. Ambrose", 2011, "978-951-1-2663-1",12.99,category1));
+			repository.save(new Book("Kuolema telaketjuilla", "Sven Hassel", 2006, "951-20-7270-1",5,category2));
 			
 			
 			log.info("fetch all category");

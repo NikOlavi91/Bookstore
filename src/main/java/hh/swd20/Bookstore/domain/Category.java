@@ -46,7 +46,7 @@ public class Category {
 	public void setBooks(List<Book> books) {
 		this.books = books;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "Category [categid=" + categid + ", name=" + name + "]";

@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Book {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -19,23 +19,21 @@ public class Book {
 	private String isbn;
 	private double price;
 
-	
 	public Book() {
 		super();
-		this.id=null;
+		this.id = null;
 		this.title = null;
 		this.author = null;
 		this.year = 0;
 		this.isbn = null;
 		this.price = 0;
-		
-	
+
 	}
-	
+
 	@ManyToOne
 	@JoinColumn(name = "categid")
 	private Category category;
-	
+
 	public Book(String title, String author, int year, String isbn, double price, Category category) {
 		super();
 		this.title = title;
@@ -45,43 +43,47 @@ public class Book {
 		this.price = price;
 		this.category = category;
 	}
+
 	public Category getCategory() {
 		return category;
 	}
-	
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
-		this.id=id;
+		this.id = id;
 	}
-	
-	
-	//@param title the title to set
+
+	// @param title the title to set
 	public void setTitle(String title) {
 		this.title = title;
 	}
 
-	//@param author the author to set	 
+	// @param author the author to set
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	
-	 //@param year the year to set
+
+	// @param year the year to set
 	public void setYear(int year) {
 		this.year = year;
 	}
 
-	//@param isbn the isbn to set
+	// @param isbn the isbn to set
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
 
-	 //@param price the price to set
+	// @param price the price to set
 	public void setPrice(double price) {
 		this.price = price;
 	}
-
 
 	public String getTitle() {
 		return title;
@@ -95,11 +97,9 @@ public class Book {
 		return year;
 	}
 
-
 	public String getIsbn() {
 		return isbn;
 	}
-
 
 	public double getPrice() {
 		return price;
@@ -107,11 +107,13 @@ public class Book {
 
 	@Override
 	public String toString() {
-		return "Book [id=" +id+ "title=" + title + ", author=" + author + ", year=" + year + ", isbn=" + isbn + ", price=" + price
-				+ "]";
-	}
+		if (this.category!=null) 
+		return "Book [id=" + id + "title=" + title + ", author=" + author + ", year=" + year + ", isbn=" + isbn
+				+ ", price=" + price + "category="+this.getCategory()+"]";
 	
-	
-	
-	
+		else 
+			return "Book [id=" + id + "title=" + title + ", author=" + author + ", year=" + year + ", isbn=" + isbn
+					+ ", price=" + price + "]";
+
+}
 }
